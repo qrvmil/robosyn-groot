@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T17:40:48.002333+00:00",
+  "run_name": "click_bell_sim_baseline_2k",
+  "training_launched": false,
+  "groot_revision": "376ba890cff8c9de64d71d982772a9c36185fdd7",
+  "model_repo": "nvidia/GR00T-N1.7-3B",
+  "model_revision": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+  "base_model_path": "/workspace/challenge/robosyn-groot/cache/huggingface/hub/models--nvidia--GR00T-N1.7-3B/snapshots/2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+  "raw_dataset_repo": "RoboSynChallenge/cobotmagic_Sim_click_bell",
+  "raw_dataset_revision": "dd1f0de495cfec3240beaf2714f239168d5b3fae",
+  "source_repo_revision": "93f95f898b76548cc259d20e2b90860a6f79120d",
+  "prepared_dataset": "data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+  "dataset_counts": {
+    "episodes": 1000,
+    "frames": 74000,
+    "videos": 3000
+  },
+  "timing": {
+    "fps": 25,
+    "state_horizon": 1,
+    "video_horizon": 1,
+    "action_horizon_steps": 13,
+    "action_horizon_seconds": 0.52
+  },
+  "scope": {
+    "llm": "frozen",
+    "visual": "frozen",
+    "projector": "trainable",
+    "diffusion_model": "trainable"
+  },
+  "hyperparameters": {
+    "num_gpus": 1,
+    "global_batch_size": 32,
+    "gradient_accumulation_steps": 1,
+    "workers": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "warmup_ratio": 0.05,
+    "max_steps": 2000,
+    "save_steps": 250,
+    "save_total_limit": 6
+  },
+  "checksums": {
+    "configs/robosyn_cobotmagic_config.py": "a92e1d5a1cd47c1a93e60e22179976b46b7c1a313bdea1078fbe0bff724b29f8",
+    "configs/robosyn_cobotmagic_semantics.json": "4a0ae14ff73d425a2e1508e73da9c1638fea6c892438740d167901d772bcadbf",
+    "data/manifests/cobotmagic_Sim_click_bell.source.json": "c49eb1ad8f6c2bd6522e57b3e52a835216cb86c6c2d0ce0d2f7a3786cf9969d6",
+    "data/manifests/cobotmagic_Sim_click_bell.sha256": "5efa7187aaaf2aebfcf6fb2936de38e16c367ab6857ecc0b6bc42ed12cdc94c8",
+    "data/manifests/cobotmagic_Sim_click_bell__groot_v1.audit.json": "9c6ad68eb73d440f1dd2e5fb6bc8e3fd048422ed6c290e92bbabc4c55c029d6e",
+    "data/manifests/cobotmagic_Sim_click_bell__groot_v1.sha256.json": "c734c8a22f6a9848dc7bdb9f897f6201398d5e8dae5364372a3600f1585c9f43",
+    "data/prepared/cobotmagic_Sim_click_bell__groot_v1/meta/info.json": "5fa56673a0e11ff25cdfc515c28c4206e1a9c66e5e19f0082ec0c2ed8d577e40",
+    "data/prepared/cobotmagic_Sim_click_bell__groot_v1/meta/modality.json": "85e6b831bbde4c58232e1dec427b09edc38054808ecb25b2ccd3c7929dead6c6",
+    "data/prepared/cobotmagic_Sim_click_bell__groot_v1/meta/stats.json": "855d6d4b2fb88dfe2d44527abffeeda2501f0c6dc92bdf41a867a513c2c0a069",
+    "reports/action_roundtrip.json": "06b0a9b4b73486c4198e4750f1ec7588327ccf0fa2f865b486e1f5639c2b9c1e",
+    "reports/groot_python_freeze.txt": "331fad85f8e5c589e68dbb5765bb6bf4855ae0db09e6da9e7681faccd92b1cd9",
+    "reports/launch_finetune_help.txt": "5f1174ffa19eb2474dadc2e306c67450781b2a3db7bcd3da5ace2f2e3c429012",
+    "reports/loader_smoke.json": "b51be94d4d965ae36e120c7da3697fcdf49e5fc474835bcb53301e1fe5afc2b2",
+    "reports/tiny_overfit.json": "68105a3b252f2ce91a405b0edc066ed8662c13650498872ea877652631b64e9e",
+    "runs/click_bell_sim_baseline_2k/command.sh": "f6c99e8012990047f63352f0b50393e5aed9df0e95d58c615ef7013458f29b6d"
+  }
+}

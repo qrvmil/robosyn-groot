@@ -1,0 +1,6 @@
+HEAD before handoff commit: 742bcf929b40f7b46963fc7c0b201ba25658c23b
+
+Working tree while snapshotting:
+?? runs/click_bell_sim_baseline_2k/
+?? tests/test_verify_readiness.py
+?? tools/verify_readiness.py

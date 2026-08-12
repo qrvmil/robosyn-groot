@@ -1,0 +1,9 @@
+{
+  "path": "data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+  "episodes": 1000,
+  "frames": 74000,
+  "videos": 3000,
+  "raw_revision": "dd1f0de495cfec3240beaf2714f239168d5b3fae",
+  "prepared_audit_sha256": "9c6ad68eb73d440f1dd2e5fb6bc8e3fd048422ed6c290e92bbabc4c55c029d6e",
+  "prepared_tree_manifest_sha256": "c734c8a22f6a9848dc7bdb9f897f6201398d5e8dae5364372a3600f1585c9f43"
+}
