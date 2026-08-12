@@ -1,0 +1,155 @@
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 2.0.8 (you have 1.4.18). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLForConditionalGeneration is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLVisionModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLTextModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/dit.py:255: FutureWarning: Accessing config attribute `compute_dtype` directly via 'AlternateVLDiT' object attribute is deprecated. Please access 'compute_dtype' over 'AlternateVLDiT's config object instead, e.g. 'unet.config.compute_dtype'.
+  embedding_dim=self.inner_dim, compute_dtype=self.compute_dtype
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/dit.py:286: FutureWarning: Accessing config attribute `output_dim` directly via 'AlternateVLDiT' object attribute is deprecated. Please access 'output_dim' over 'AlternateVLDiT's config object instead, e.g. 'unet.config.output_dim'.
+  self.proj_out_2 = nn.Linear(self.inner_dim, self.output_dim)
+Total number of DiT parameters:  1091722240
+Total number of SelfAttentionTransformer parameters:  201433088
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 37.91it/s]
+{
+  "checkpoint": "/workspace/challenge/robosyn-groot/runs/tiny_click_bell_v1/checkpoints/tiny_click_bell_v1/checkpoint-500",
+  "dataset": "/workspace/challenge/robosyn-groot/data/tiny/cobotmagic_click_bell_4ep_v1",
+  "execution_horizon": 13,
+  "denoising_steps": 4,
+  "episodes": [
+    {
+      "episode_id": 0,
+      "shape": [
+        74,
+        14
+      ],
+      "finite": true,
+      "mae": 0.018358875066041946,
+      "mse": 0.002560323802754283,
+      "prediction_std": 0.5011655688285828,
+      "mean_dimension_std": 0.1007857397198677,
+      "best_arm_lag": 0,
+      "arm_lag_mae": {
+        "-5": 0.034766409546136856,
+        "-4": 0.031019674614071846,
+        "-3": 0.027348384261131287,
+        "-2": 0.024378729984164238,
+        "-1": 0.02206069603562355,
+        "0": 0.02141868881881237,
+        "1": 0.02242819406092167,
+        "2": 0.024212904274463654,
+        "3": 0.026720456779003143,
+        "4": 0.029556484892964363,
+        "5": 0.03275825083255768
+      }
+    },
+    {
+      "episode_id": 1,
+      "shape": [
+        74,
+        14
+      ],
+      "finite": true,
+      "mae": 0.015252850949764252,
+      "mse": 0.0019879029132425785,
+      "prediction_std": 0.6294870376586914,
+      "mean_dimension_std": 0.144273042678833,
+      "best_arm_lag": 0,
+      "arm_lag_mae": {
+        "-5": 0.04363039880990982,
+        "-4": 0.03715718910098076,
+        "-3": 0.030841290950775146,
+        "-2": 0.02454090118408203,
+        "-1": 0.019653111696243286,
+        "0": 0.01779499277472496,
+        "1": 0.01976855657994747,
+        "2": 0.022838862612843513,
+        "3": 0.027012554928660393,
+        "4": 0.03186962381005287,
+        "5": 0.03736186772584915
+      }
+    },
+    {
+      "episode_id": 2,
+      "shape": [
+        74,
+        14
+      ],
+      "finite": true,
+      "mae": 0.014344342052936554,
+      "mse": 0.0019215188222005963,
+      "prediction_std": 0.734980046749115,
+      "mean_dimension_std": 0.15882369875907898,
+      "best_arm_lag": 0,
+      "arm_lag_mae": {
+        "-5": 0.0508650541305542,
+        "-4": 0.04315360262989998,
+        "-3": 0.0355449877679348,
+        "-2": 0.02830280363559723,
+        "-1": 0.021398251876235008,
+        "0": 0.01673506572842598,
+        "1": 0.018658751621842384,
+        "2": 0.02215878665447235,
+        "3": 0.026776909828186035,
+        "4": 0.03187102451920509,
+        "5": 0.037507280707359314
+      }
+    },
+    {
+      "episode_id": 3,
+      "shape": [
+        74,
+        14
+      ],
+      "finite": true,
+      "mae": 0.0188154149800539,
+      "mse": 0.003054431639611721,
+      "prediction_std": 0.2774629294872284,
+      "mean_dimension_std": 0.050582405179739,
+      "best_arm_lag": 0,
+      "arm_lag_mae": {
+        "-5": 0.027435051277279854,
+        "-4": 0.02605033665895462,
+        "-3": 0.024569718167185783,
+        "-2": 0.02335246093571186,
+        "-1": 0.022574519738554955,
+        "0": 0.02195131406188011,
+        "1": 0.022112099453806877,
+        "2": 0.022475505247712135,
+        "3": 0.023058781400322914,
+        "4": 0.02388729341328144,
+        "5": 0.02494189888238907
+      }
+    }
+  ],
+  "all_shapes_match": true,
+  "all_finite": true,
+  "predictions_nonconstant": true,
+  "prediction_std_by_dimension": [
+    0.0582243911921978,
+    0.022597964853048325,
+    0.0336577333509922,
+    0.3160150945186615,
+    0.049020957201719284,
+    0.30640754103660583,
+    0.0,
+    0.36729931831359863,
+    0.7548129558563232,
+    0.6324779987335205,
+    0.09052770584821701,
+    0.20136459171772003,
+    0.103935107588768,
+    0.0
+  ],
+  "aggregate_mae": 0.01669287122786045,
+  "aggregate_mse": 0.0023810442071408033,
+  "ground_truth_gripper_max_abs": 0.0,
+  "prediction_gripper_mae": 0.0,
+  "prediction_gripper_max_abs": 0.0,
+  "episode_best_arm_lags": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

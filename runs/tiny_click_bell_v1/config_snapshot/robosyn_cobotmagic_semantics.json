@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "repo_id": "RoboSynChallenge/cobotmagic_Sim_click_bell",
+    "revision": "dd1f0de495cfec3240beaf2714f239168d5b3fae",
+    "raw_root": "data/raw/RoboSynChallenge/cobotmagic_Sim_click_bell",
+    "source_repo_revision": "93f95f898b76548cc259d20e2b90860a6f79120d"
+  },
+  "timing": {
+    "fps": 25,
+    "video_and_parquet_aligned": true,
+    "action_horizon_steps": 13,
+    "action_horizon_seconds": 0.52,
+    "video_delta_indices": [
+      0
+    ],
+    "state_delta_indices": [
+      0
+    ],
+    "action_delta_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "state": {
+    "original_key": "observation.qpos",
+    "stored_representation": "absolute joint position",
+    "groups": [
+      {
+        "key": "left_arm",
+        "start": 0,
+        "end": 6,
+        "units": "robot joint position (radians for revolute joints)"
+      },
+      {
+        "key": "left_gripper",
+        "start": 6,
+        "end": 7,
+        "units": "normalized position; 0=closed, 1=open"
+      },
+      {
+        "key": "right_arm",
+        "start": 7,
+        "end": 13,
+        "units": "robot joint position (radians for revolute joints)"
+      },
+      {
+        "key": "right_gripper",
+        "start": 13,
+        "end": 14,
+        "units": "normalized position; 0=closed, 1=open"
+      }
+    ]
+  },
+  "action": {
+    "original_key": "action",
+    "stored_representation": "absolute target joint position",
+    "groups": [
+      {
+        "key": "left_arm",
+        "start": 0,
+        "end": 6,
+        "training_representation": "RELATIVE",
+        "type": "NON_EEF",
+        "format": "DEFAULT",
+        "state_key": "left_arm"
+      },
+      {
+        "key": "left_gripper",
+        "start": 6,
+        "end": 7,
+        "training_representation": "ABSOLUTE",
+        "type": "NON_EEF",
+        "format": "DEFAULT"
+      },
+      {
+        "key": "right_arm",
+        "start": 7,
+        "end": 13,
+        "training_representation": "RELATIVE",
+        "type": "NON_EEF",
+        "format": "DEFAULT",
+        "state_key": "right_arm"
+      },
+      {
+        "key": "right_gripper",
+        "start": 13,
+        "end": 14,
+        "training_representation": "ABSOLUTE",
+        "type": "NON_EEF",
+        "format": "DEFAULT"
+      }
+    ]
+  },
+  "video": {
+    "front": {
+      "original_key": "cam_high.color",
+      "physical_view": "base/overhead"
+    },
+    "left_wrist": {
+      "original_key": "cam_left_wrist.color",
+      "physical_view": "left wrist"
+    },
+    "right_wrist": {
+      "original_key": "cam_right_wrist.color",
+      "physical_view": "right wrist"
+    }
+  },
+  "language": {
+    "modality_key": "annotation.human.task_description",
+    "annotation_key": "human.task_description",
+    "original_key": "task_index",
+    "task_index": 0,
+    "task": "Click the bell"
+  },
+  "excluded_from_baseline": {
+    "observation.qvel": "not required for absolute joint target control baseline",
+    "observation.qf": "all 14 dimensions are zero across all 74000 frames",
+    "left_ee_pose": "EEF pose is not the demonstrated control representation",
+    "right_ee_pose": "EEF pose is not the demonstrated control representation"
+  },
+  "evidence": {
+    "source_order_and_absolute_control": "repos/RoboSynChallenge/docs/tutorials/policy/your_own_policy.md:81",
+    "source_action_assembly": "repos/RoboSynChallenge/robosynchallenge/tasks/click_bell/click_bell.py:98",
+    "source_gripper_normalization": "repos/RoboSynChallenge/robosynchallenge/tasks/click_bell/action_bank.py:131",
+    "source_camera_mapping": "repos/RoboSynChallenge/policy/pi0/deploy_policy.py:39",
+    "full_dataset_audit": "data/manifests/cobotmagic_Sim_click_bell.audit.json",
+    "action_alignment_metrics": "reports/action_semantics_metrics.json",
+    "visual_audit": "reports/visual_audit/"
+  }
+}

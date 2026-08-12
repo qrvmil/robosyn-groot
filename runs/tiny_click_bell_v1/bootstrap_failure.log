@@ -1,0 +1,10 @@
+error: Failed to generate package metadata for `flash-attn==2.8.3 @
+       direct+https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_aarch64.whl`
+  Caused by: Request failed after 3 retries in 9.5s
+  Caused by: Failed to fetch:
+             `https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_aarch64.whl`
+  Caused by: error sending request for url
+             (https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_aarch64.whl)
+  Caused by: client error (SendRequest)
+  Caused by: http2 error
+  Caused by: stream error received: refused stream before processing any application logic

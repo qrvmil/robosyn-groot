@@ -1,0 +1,14 @@
+{
+  "source": "/workspace/challenge/robosyn-groot/data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+  "destination": "/workspace/challenge/robosyn-groot/data/tiny/cobotmagic_click_bell_4ep_v1",
+  "episode_ids": [
+    0,
+    250,
+    500,
+    749
+  ],
+  "episodes": 4,
+  "frames": 296,
+  "videos": 12,
+  "statistics_reset": true
+}

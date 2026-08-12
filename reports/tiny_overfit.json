@@ -1,0 +1,41 @@
+{
+  "run_name": "tiny_click_bell_v1",
+  "status": "pass",
+  "training": {
+    "exit_code": 0,
+    "steps": 500,
+    "runtime_seconds": 219.6511,
+    "train_steps_per_second": 2.276,
+    "reported_train_loss": 1.1271106128692627,
+    "first_logged_loss_step_10": 1.5411,
+    "last_logged_loss_step_500": 1.0409,
+    "first_10_windows_mean_loss": 1.35186,
+    "last_10_windows_mean_loss": 1.03635,
+    "window_mean_relative_reduction": 0.23338955217256238,
+    "nan_detected": false,
+    "oom_detected": false,
+    "saved_checkpoints": [100, 200, 300, 400, 500]
+  },
+  "reload": {
+    "checkpoint": "runs/tiny_click_bell_v1/checkpoints/tiny_click_bell_v1/checkpoint-500",
+    "passed": true,
+    "evidence": "runs/tiny_click_bell_v1/evaluation/open_loop.log"
+  },
+  "open_loop": {
+    "official_cli_exit_code": 0,
+    "episodes": [0, 1, 2, 3],
+    "steps_per_episode": 74,
+    "action_shape_per_episode": [74, 14],
+    "official_average_mae": 0.01713860034942627,
+    "official_average_mse": 0.0026015101466327906,
+    "detailed_all_finite": true,
+    "detailed_predictions_nonconstant": true,
+    "detailed_aggregate_mae": 0.01669287122786045,
+    "detailed_aggregate_mse": 0.0023810442071408033,
+    "ground_truth_gripper_max_abs": 0.0,
+    "prediction_gripper_max_abs": 0.0,
+    "episode_best_arm_lags": [0, 0, 0, 0],
+    "evidence": "runs/tiny_click_bell_v1/evaluation/metrics.json"
+  },
+  "known_data_constraint": "All 74000 source action gripper values are zero; the tiny gate validates arm/contact motion and requires zero gripper predictions."
+}
