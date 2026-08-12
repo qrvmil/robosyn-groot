@@ -35,9 +35,6 @@ fi
 uv pip install --python "$VENV_DIR/bin/python" -e "$EMBODICHAIN_REPO" \
   --extra-index-url http://pyp.open3dv.site:2345/simple/ \
   --trusted-host pyp.open3dv.site
-if [[ -d "$EMBODICHAIN_REPO/embodichain_tasks" ]]; then
-  uv pip install --python "$VENV_DIR/bin/python" -e "$EMBODICHAIN_REPO/embodichain_tasks"
-fi
 uv pip install --python "$VENV_DIR/bin/python" -e "$ROBOSYN_REPO" 'numpy<2' pyzmq msgpack msgpack-numpy pytest
 
 PYTHONPATH="$EMBODICHAIN_REPO:$ROBOSYN_REPO" "$VENV_DIR/bin/python" - <<'PY'
@@ -49,4 +46,3 @@ import robosynchallenge
 import zmq
 print("RoboSyn evaluation imports OK")
 PY
-

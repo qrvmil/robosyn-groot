@@ -22,6 +22,26 @@ if WORK_ROOT="$TMP_ROOT/work" EMBODICHAIN_REPO="$TMP_ROOT/missing-source" bash "
 fi
 grep -F "EmbodiChain checkout does not exist" "$BOOT_OUTPUT" >/dev/null || fail "bootstrap missing source diagnostic"
 
+FAKE_WORK="$TMP_ROOT/fake-work"
+mkdir -p "$FAKE_WORK/repos/EmbodiChain/embodichain_tasks" "$FAKE_WORK/repos/RoboSynChallenge" "$FAKE_WORK/.venvs/robosyn/bin"
+FAKE_UV="$TMP_ROOT/uv"
+UV_LOG="$TMP_ROOT/uv.log"
+cat >"$FAKE_UV" <<'EOF'
+#!/usr/bin/env bash
+printf '%s\n' "$*" >>"$UV_LOG"
+exit 0
+EOF
+chmod +x "$FAKE_UV"
+cat >"$FAKE_WORK/.venvs/robosyn/bin/python" <<'EOF'
+#!/usr/bin/env bash
+exit 0
+EOF
+chmod +x "$FAKE_WORK/.venvs/robosyn/bin/python"
+PATH="$TMP_ROOT:$PATH" UV_LOG="$UV_LOG" WORK_ROOT="$FAKE_WORK" bash "$WORK_ROOT/tools/bootstrap_robosyn_eval.sh"
+if grep -F -- "-e $FAKE_WORK/repos/EmbodiChain/embodichain_tasks" "$UV_LOG" >/dev/null; then
+  fail "bootstrap tried to install bundled embodichain_tasks as a separate project"
+fi
+
 FAKE_PYTHON="$TMP_ROOT/fake-python"
 ARGV_LOG="$TMP_ROOT/argv.log"
 cat >"$FAKE_PYTHON" <<'EOF'
