@@ -7,3 +7,4 @@
 *.pyc
 __pycache__/
 /runs/*/failed_startup_*/checkpoints/
+/.worktrees/
