@@ -1,0 +1,8 @@
+/cache/
+/data/raw/
+/data/prepared/
+/data/tiny/
+/repos/
+/runs/*/checkpoints/
+*.pyc
+__pycache__/

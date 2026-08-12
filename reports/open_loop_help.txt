@@ -1,0 +1,31 @@
+usage: open_loop_eval.py [-h] [OPTIONS]
+
+Configuration for evaluating a policy.
+
+╭─ options ──────────────────────────────────────────────────────────────────╮
+│ -h, --help              show this help message and exit                    │
+│ --host STR              Host to connect to. (default: 127.0.0.1)           │
+│ --port INT              Port to connect to. (default: 5555)                │
+│ --steps INT             Maximum number of steps to evaluate (will be       │
+│                         capped by trajectory length). (default: 200)       │
+│ --traj-ids [INT [INT ...]]                                                 │
+│                         List of trajectory IDs to evaluate. (default: 0)   │
+│ --execution-horizon INT                                                    │
+│                         How many steps of each predicted action chunk to   │
+│                         execute before re-planning                         │
+│                         (must be <= the model's predicted chunk length).   │
+│                         (default: 16)                                      │
+│ --dataset-path STR      Path to the dataset. (default:                     │
+│                         demo_data/cube_to_bowl_5/)                         │
+│ --embodiment-tag STR    Embodiment tag (name or value, case-insensitive).  │
+│                         Run with --help to see known tags. (default:       │
+│                         new_embodiment)                                    │
+│ --model-path {None}|STR                                                    │
+│                         Path to the model checkpoint. (default: None)      │
+│ --denoising-steps INT   Number of denoising steps to use. (default: 4)     │
+│ --save-plot-path {None}|STR                                                │
+│                         Path to save the plot to. (default: None)          │
+│ --modality-keys {None}|{[STR [STR ...]]}                                   │
+│                         List of modality keys to plot. If None, plot all   │
+│                         keys. (default: None)                              │
+╰────────────────────────────────────────────────────────────────────────────╯

@@ -1,0 +1,29 @@
+gr00t/experiment/launch_finetune.py:26:from gr00t.configs.finetune_config import FinetuneConfig
+gr00t/experiment/launch_finetune.py:78:    config.model.tune_llm = ft_config.tune_llm
+gr00t/experiment/launch_finetune.py:79:    config.model.tune_visual = ft_config.tune_visual
+gr00t/experiment/launch_finetune.py:80:    config.model.tune_projector = ft_config.tune_projector
+gr00t/experiment/launch_finetune.py:81:    config.model.tune_diffusion_model = ft_config.tune_diffusion_model
+gr00t/experiment/launch_finetune.py:98:    config.model.load_bf16 = False
+gr00t/configs/finetune_config.py:49:    tune_llm: bool = False
+gr00t/configs/finetune_config.py:52:    tune_visual: bool = False
+gr00t/configs/finetune_config.py:55:    tune_projector: bool = True
+gr00t/configs/finetune_config.py:58:    tune_diffusion_model: bool = True
+gr00t/configs/training/training_config.py:46:    lr_scheduler_type: str = "cosine"
+gr00t/configs/training/training_config.py:50:    max_grad_norm: float = 1.0
+gr00t/configs/training/training_config.py:63:    bf16: bool = True
+gr00t/configs/training/training_config.py:64:    eval_bf16: bool = True
+gr00t/experiment/experiment.py:278:        lr_scheduler_type=config.training.lr_scheduler_type,
+gr00t/experiment/experiment.py:282:        max_grad_norm=config.training.max_grad_norm,
+gr00t/experiment/experiment.py:288:        bf16=config.training.bf16,
+gr00t/configs/deepspeed/zero3_config.json:15:    "bf16": {
+gr00t/configs/model/gr00t_n1d7.py:43:    tune_top_llm_layers: int = 0  # Number of top LLM layers to tune
+gr00t/configs/model/gr00t_n1d7.py:45:    tune_llm: bool = False
+gr00t/configs/model/gr00t_n1d7.py:46:    tune_visual: bool = False
+gr00t/configs/model/gr00t_n1d7.py:50:    load_bf16: bool = False  # Enable BF16 loading
+gr00t/configs/model/gr00t_n1d7.py:113:    tune_projector: bool = True
+gr00t/configs/model/gr00t_n1d7.py:114:    tune_diffusion_model: bool = True
+gr00t/configs/model/gr00t_n1d7.py:115:    tune_vlln: bool = True
+gr00t/configs/deepspeed/zero2_config.json:18:    "bf16": {
+gr00t/configs/deepspeed/zero2_config.json:21:    "communication_data_type": "bf16",
+gr00t/configs/base_config.py:213:        if self.training.fp16 and self.training.bf16:
+gr00t/configs/base_config.py:214:            raise ValueError("Cannot use both fp16 and bf16")
