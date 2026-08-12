@@ -52,8 +52,13 @@ def validate_semantics(semantics: dict[str, object], state_dim: int, action_dim:
 
 def build_modality_json(semantics: dict[str, object]) -> dict[str, object]:
     def slices(name: str) -> dict[str, object]:
+        original_key = str(semantics[name]["original_key"])
         return {
-            str(g["key"]): {"start": int(g["start"]), "end": int(g["end"])}
+            str(g["key"]): {
+                "start": int(g["start"]),
+                "end": int(g["end"]),
+                "original_key": original_key,
+            }
             for g in semantics[name]["groups"]
         }
 
@@ -89,6 +94,36 @@ def split_episode_ids(
     if len(shuffled) > 1 and validation_fraction:
         count = min(max(1, round(len(shuffled) * validation_fraction)), len(shuffled) - 1)
     return {"train": sorted(shuffled[count:]), "validation": sorted(shuffled[:count])}
+
+
+def prune_excluded_features(root: Path, excluded: dict[str, object]) -> dict[str, object]:
+    keys = sorted(str(key) for key in excluded)
+    dropped_columns = 0
+    parquet_files = 0
+    for path in sorted(root.glob("data/**/*.parquet")):
+        table = pq.read_table(path)
+        present = [key for key in keys if key in table.column_names]
+        if present:
+            table = table.drop(present)
+            temporary = path.with_suffix(".parquet.tmp")
+            pq.write_table(table, temporary)
+            os.replace(temporary, path)
+            dropped_columns += len(present)
+        parquet_files += 1
+
+    info_path = root / "meta/info.json"
+    info = load_json(info_path)
+    removed_metadata = []
+    for key in keys:
+        if info["features"].pop(key, None) is not None:
+            removed_metadata.append(key)
+    info_path.write_text(json.dumps(info, indent=2) + "\n")
+    return {
+        "requested": keys,
+        "removed_metadata": removed_metadata,
+        "parquet_files": parquet_files,
+        "dropped_column_instances": dropped_columns,
+    }
 
 
 def align_language_annotation(root: Path, language: dict[str, object]) -> dict[str, object]:
@@ -202,6 +237,9 @@ def prepare_dataset(src: Path, dst: Path, semantics: dict[str, object]) -> dict[
     try:
         shutil.copytree(src, temporary, dirs_exist_ok=True)
         _make_writable(temporary)
+        pruning = prune_excluded_features(
+            temporary, semantics.get("excluded_from_baseline", {})
+        )
         language = align_language_annotation(temporary, semantics["language"])
         split = split_episode_ids(_episode_ids(temporary))
         (temporary / "meta/modality.json").write_text(
@@ -219,10 +257,12 @@ def prepare_dataset(src: Path, dst: Path, semantics: dict[str, object]) -> dict[
             "semantics_sha256": hashlib.sha256(semantic_bytes).hexdigest(),
             "transformations": [
                 "copied immutable source snapshot",
+                f"removed excluded baseline features: {pruning['removed_metadata']}",
                 f"aligned {language['source_key']} to {language['aligned_key']}",
                 "added modality metadata",
                 "added deterministic whole-episode split",
             ],
+            "pruning": pruning,
             "language": language,
             "split": split,
             "state_dimension": state_dim,

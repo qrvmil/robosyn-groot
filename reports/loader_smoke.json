@@ -1,0 +1,137 @@
+{
+  "dataset": "/workspace/challenge/robosyn-groot/data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+  "episode_position": 0,
+  "episode_id": 0,
+  "episode_rows": 74,
+  "effective_steps_horizon_13": 62,
+  "dataframe_columns": [
+    "language.annotation.human.task_description",
+    "state.left_arm",
+    "state.left_gripper",
+    "state.right_arm",
+    "state.right_gripper",
+    "action.left_arm",
+    "action.left_gripper",
+    "action.right_arm",
+    "action.right_gripper",
+    "video.front",
+    "video.left_wrist",
+    "video.right_wrist"
+  ],
+  "text": "Click the bell",
+  "images": {
+    "front": {
+      "horizon": 1,
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "left_wrist": {
+      "horizon": 1,
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "right_wrist": {
+      "horizon": 1,
+      "shape": [
+        480,
+        640,
+        3
+      ],
+      "dtype": "uint8"
+    }
+  },
+  "states": {
+    "left_arm": {
+      "shape": [
+        1,
+        6
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "left_gripper": {
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "right_arm": {
+      "shape": [
+        1,
+        6
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "right_gripper": {
+      "shape": [
+        1,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true
+    }
+  },
+  "actions": {
+    "left_arm": {
+      "shape": [
+        13,
+        6
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "left_gripper": {
+      "shape": [
+        13,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "right_arm": {
+      "shape": [
+        13,
+        6
+      ],
+      "dtype": "float32",
+      "finite": true
+    },
+    "right_gripper": {
+      "shape": [
+        13,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true
+    }
+  },
+  "stats_keys": {
+    "state": [
+      "left_arm",
+      "left_gripper",
+      "right_arm",
+      "right_gripper"
+    ],
+    "action": [
+      "left_arm",
+      "left_gripper",
+      "right_arm",
+      "right_gripper"
+    ],
+    "relative_action": [
+      "left_arm",
+      "right_arm"
+    ]
+  }
+}

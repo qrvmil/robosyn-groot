@@ -127,8 +127,8 @@
   "excluded_from_baseline": {
     "observation.qvel": "not required for absolute joint target control baseline",
     "observation.qf": "all 14 dimensions are zero across all 74000 frames",
-    "observation.left_ee_pose": "EEF pose is not the demonstrated control representation",
-    "observation.right_ee_pose": "EEF pose is not the demonstrated control representation"
+    "left_ee_pose": "EEF pose is not the demonstrated control representation",
+    "right_ee_pose": "EEF pose is not the demonstrated control representation"
   },
   "evidence": {
     "source_order_and_absolute_control": "repos/RoboSynChallenge/docs/tutorials/policy/your_own_policy.md:81",

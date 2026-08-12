@@ -1,0 +1,712 @@
+{
+  "dataset": "/workspace/challenge/robosyn-groot/data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+  "config": "/workspace/challenge/robosyn-groot/configs/robosyn_cobotmagic_config.py",
+  "seed": 17,
+  "samples": 128,
+  "episode_positions_loaded": [
+    106,
+    160,
+    368,
+    456,
+    556,
+    735,
+    760,
+    840
+  ],
+  "action_horizon": 13,
+  "processor": {
+    "use_percentiles": true,
+    "use_relative_action": true,
+    "production_clip_outliers": true
+  },
+  "groups": {
+    "left_arm": {
+      "raw_shape": [
+        13,
+        6
+      ],
+      "exact_roundtrip_max_abs_error": 0.0,
+      "production_clipped_roundtrip_max_abs_error": 0.0,
+      "q01_q99_clip_count": 0,
+      "value_count": 9984,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "left_gripper": {
+      "raw_shape": [
+        13,
+        1
+      ],
+      "exact_roundtrip_max_abs_error": 0.0,
+      "production_clipped_roundtrip_max_abs_error": 0.0,
+      "q01_q99_clip_count": 0,
+      "value_count": 1664,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "right_arm": {
+      "raw_shape": [
+        13,
+        6
+      ],
+      "exact_roundtrip_max_abs_error": 5.551115123125783e-17,
+      "production_clipped_roundtrip_max_abs_error": 5.551115123125783e-17,
+      "q01_q99_clip_count": 0,
+      "value_count": 9984,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "right_gripper": {
+      "raw_shape": [
+        13,
+        1
+      ],
+      "exact_roundtrip_max_abs_error": 0.0,
+      "production_clipped_roundtrip_max_abs_error": 0.0,
+      "q01_q99_clip_count": 0,
+      "value_count": 1664,
+      "q01_q99_clip_fraction": 0.0
+    }
+  },
+  "overall_exact_roundtrip_max_abs_error": 5.551115123125783e-17,
+  "overall_production_clipped_roundtrip_max_abs_error": 5.551115123125783e-17,
+  "sampled_pairs": [
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 4
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 58
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 3
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 36
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 23
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 46
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 10
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 55
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 1
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 30
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 48
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 12
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 36
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 5
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 8
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 28
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 56
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 27
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 35
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 20
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 44
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 37
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 32
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 23
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 42
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 44
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 39
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 41
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 56
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 32
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 39
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 35
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 33
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 15
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 10
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 35
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 59
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 57
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 10
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 41
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 21
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 14
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 14
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 35
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 53
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 43
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 33
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 32
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 51
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 47
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 33
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 27
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 0
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 39
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 3
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 13
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 40
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 20
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 42
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 50
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 30
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 60
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 42
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 0
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 19
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 60
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 3
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 55
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 3
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 42
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 20
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 14
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 36
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 40
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 41
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 34
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 37
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 12
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 54
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 8
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 15
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 16
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 46
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 2
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 14
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 4
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 25
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 21
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 18
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 24
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 43
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 1
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 33
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 38
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 16
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 59
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 5
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 6
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 34
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 41
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 39
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 43
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 50
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 19
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 49
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 1
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 2
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 34
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 54
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 15
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 31
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 33
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 51
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 54
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 18
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 29
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 57
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 59
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 27
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 22
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 8
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 23
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 19
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 15
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 21
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 7
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 40
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 35
+    }
+  ]
+}

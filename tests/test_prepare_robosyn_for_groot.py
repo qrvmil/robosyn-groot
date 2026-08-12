@@ -24,6 +24,7 @@ def dataset_fixture(tmp_path: Path) -> Path:
         "features": {
             "observation.qpos": {"dtype": "float32", "shape": [4]},
             "action": {"dtype": "float32", "shape": [4]},
+            "observation.qvel": {"dtype": "float32", "shape": [4]},
             "task_index": {"dtype": "int64", "shape": [1], "names": None},
         },
     }
@@ -44,6 +45,10 @@ def dataset_fixture(tmp_path: Path) -> Path:
                 ),
                 "action": pa.array(
                     [[episode, 0.0, episode + 0.5, 0.0]] * 2,
+                    type=pa.list_(pa.float32(), 4),
+                ),
+                "observation.qvel": pa.array(
+                    [[1.0, 1.0, 1.0, 1.0]] * 2,
                     type=pa.list_(pa.float32(), 4),
                 ),
                 "task_index": pa.array([0, 0], type=pa.int64()),
@@ -94,6 +99,9 @@ def semantics() -> dict[str, object]:
             "annotation_key": "human.task_description",
             "original_key": "task_index",
         },
+        "excluded_from_baseline": {
+            "observation.qvel": "not used by baseline",
+        },
     }
 
 
@@ -112,17 +120,22 @@ def test_prepare_aligns_language_split_and_preserves_raw(dataset_fixture: Path, 
 
     modality = json.loads((destination / "meta/modality.json").read_text())
     assert modality["annotation"]["human.task_description"]["original_key"] == "annotation.human.task_description"
+    assert {value["original_key"] for value in modality["state"].values()} == {"observation.qpos"}
+    assert {value["original_key"] for value in modality["action"].values()} == {"action"}
     split = report["split"]
     assert set(split["train"]).isdisjoint(split["validation"])
     assert sorted(split["train"] + split["validation"]) == [0, 1, 2]
     prepared_table = pq.read_table(destination / "data/chunk-000/episode_000000.parquet")
     assert prepared_table["annotation.human.task_description"].to_pylist() == [0, 0]
+    assert "observation.qvel" not in prepared_table.column_names
     raw_table = pq.read_table(dataset_fixture / "data/chunk-000/episode_000000.parquet")
     assert "annotation.human.task_description" not in raw_table.column_names
+    assert "observation.qvel" in raw_table.column_names
     info = json.loads((destination / "meta/info.json").read_text())
     assert info["features"]["annotation.human.task_description"] == {
         "dtype": "int64",
         "shape": [1],
         "names": None,
     }
+    assert "observation.qvel" not in info["features"]
     assert (destination / "meta/preparation_manifest.json").is_file()

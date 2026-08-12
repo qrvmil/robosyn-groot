@@ -2087,37 +2087,6 @@
       ],
       "std": 21361.959958065647
     },
-    "left_ee_pose": {
-      "count": 1184000,
-      "frame_count": 74000,
-      "inf_count": 0,
-      "max": 1.0915067195892334,
-      "mean": 0.22095596405596882,
-      "min": -0.9999082088470459,
-      "nan_count": 0,
-      "near_zero_frame_count": 0,
-      "near_zero_frame_rate": 0.0,
-      "shape": [
-        4,
-        4
-      ],
-      "std": 0.5348490697426616
-    },
-    "observation.qf": {
-      "count": 1036000,
-      "frame_count": 74000,
-      "inf_count": 0,
-      "max": 0.0,
-      "mean": 0.0,
-      "min": 0.0,
-      "nan_count": 0,
-      "near_zero_frame_count": 74000,
-      "near_zero_frame_rate": 1.0,
-      "shape": [
-        14
-      ],
-      "std": 0.0
-    },
     "observation.qpos": {
       "count": 1036000,
       "frame_count": 74000,
@@ -2132,37 +2101,6 @@
         14
       ],
       "std": 0.557807028614152
-    },
-    "observation.qvel": {
-      "count": 1036000,
-      "frame_count": 74000,
-      "inf_count": 0,
-      "max": 10.267407417297363,
-      "mean": 0.014561739505907676,
-      "min": -7.513695240020752,
-      "nan_count": 0,
-      "near_zero_frame_count": 0,
-      "near_zero_frame_rate": 0.0,
-      "shape": [
-        14
-      ],
-      "std": 0.3607616649392664
-    },
-    "right_ee_pose": {
-      "count": 1184000,
-      "frame_count": 74000,
-      "inf_count": 0,
-      "max": 1.1587772369384766,
-      "mean": 0.21191702256482506,
-      "min": -0.9999976754188538,
-      "nan_count": 0,
-      "near_zero_frame_count": 0,
-      "near_zero_frame_rate": 0.0,
-      "shape": [
-        4,
-        4
-      ],
-      "std": 0.5343082601053845
     },
     "task_index": {
       "count": 74000,
@@ -2208,7 +2146,7 @@
   "schemas": [
     {
       "count": 1000,
-      "schema": "observation.qpos: fixed_size_list<element: float>[14]\n  child 0, element: float\nobservation.qvel: fixed_size_list<element: float>[14]\n  child 0, element: float\nobservation.qf: fixed_size_list<element: float>[14]\n  child 0, element: float\naction: fixed_size_list<element: float>[14]\n  child 0, element: float\ntimestamp: float\nframe_index: int64\nepisode_index: int64\nindex: int64\ntask_index: int64\nright_ee_pose: fixed_size_list<element: fixed_size_list<element: float>[4]>[4]\n  child 0, element: fixed_size_list<element: float>[4]\n      child 0, element: float\nleft_ee_pose: fixed_size_list<element: fixed_size_list<element: float>[4]>[4]\n  child 0, element: fixed_size_list<element: float>[4]\n      child 0, element: float\nannotation.human.task_description: int64"
+      "schema": "observation.qpos: fixed_size_list<element: float>[14]\n  child 0, element: float\naction: fixed_size_list<element: float>[14]\n  child 0, element: float\ntimestamp: float\nframe_index: int64\nepisode_index: int64\nindex: int64\ntask_index: int64\nannotation.human.task_description: int64"
     }
   ],
   "tasks": [
