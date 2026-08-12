@@ -1,0 +1,9 @@
+export WORK_ROOT="/workspace/challenge/robosyn-groot"
+export HF_HOME="/workspace/challenge/robosyn-groot/cache/huggingface"
+export HUGGINGFACE_HUB_CACHE="/workspace/challenge/robosyn-groot/cache/huggingface/hub"
+export TORCH_HOME="/workspace/challenge/robosyn-groot/cache/torch"
+export UV_CACHE_DIR="/workspace/challenge/robosyn-groot/cache/uv"
+export WANDB_DIR="/workspace/challenge/robosyn-groot/runs/wandb"
+export CUDA_HOME="/usr/local/cuda"
+export TOKENIZERS_PARALLELISM=false
+export PYTHONUNBUFFERED=1

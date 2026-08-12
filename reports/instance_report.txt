@@ -1,0 +1,241 @@
+2026-08-12T13:00:19+00:00
+Linux 590a92510c93 6.8.0-124-generic #124-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 13:00:45 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+Wed Aug 12 13:00:19 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:17:00.0 Off |                    0 |
+| N/A   40C    P0             56W /  300W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Aug_20_01:58:59_PM_PDT_2025
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+Python 3.12.13
+               total        used        free      shared  buff/cache   available
+Mem:           503Gi        16Gi       130Gi       101Mi       359Gi       486Gi
+Swap:          8.0Gi       190Mi       7.8Gi
+Filesystem                            Size  Used Avail Use% Mounted on
+overlay                               383G  2.3G  381G   1% /
+tmpfs                                  64M     0   64M   0% /dev
+shm                                   125G     0  125G   0% /dev/shm
+/dev/mapper/vastdata-data             7.0T  1.7T  5.4T  24% /etc/hosts
+tmpfs                                  51G  2.9M   51G   1% /run/nvidia-persistenced/socket
+/dev/mapper/ubuntu--vg--1-ubuntu--lv   98G   28G   66G  30% /usr/bin/nvidia-smi
+tmpfs                                 4.0K  4.0K     0 100% /run/nvidia-ctk-hook5caad39a-641b-4694-a9cf-5777fa7e31f5
+tmpfs                                 252G     0  252G   0% /proc/acpi
+tmpfs                                 252G     0  252G   0% /proc/asound
+tmpfs                                 252G     0  252G   0% /proc/scsi
+tmpfs                                 252G     0  252G   0% /sys/devices/virtual/powercap
+tmpfs                                 252G     0  252G   0% /sys/firmware
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu0/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu1/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu2/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu3/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu4/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu5/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu6/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu7/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu8/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu9/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu10/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu11/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu12/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu13/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu14/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu15/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu16/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu17/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu18/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu19/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu20/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu21/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu22/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu23/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu24/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu25/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu26/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu27/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu28/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu29/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu30/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu31/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu32/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu33/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu34/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu35/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu36/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu37/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu38/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu39/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu40/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu41/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu42/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu43/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu44/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu45/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu46/thermal_throttle
+tmpfs                                 252G     0  252G   0% /sys/devices/system/cpu/cpu47/thermal_throttle
+NAME    FSTYPE FSVER LABEL UUID FSAVAIL FSUSE% MOUNTPOINTS
+sda                                            
+├─sda1                                         
+└─sda2                                         
+sdb                                            
+├─sdb1                                         
+├─sdb2                                         
+└─sdb3                                         
+nvme1n1                                        
+nvme0n1                                        
+overlay on / type overlay (rw,relatime,lowerdir=14301/fs:14175/fs:14174/fs:14173/fs:14172/fs:14171/fs:14170/fs:13914/fs:13913/fs:13522/fs:13500/fs:13499/fs:13498/fs:13497/fs:13496/fs:13495/fs:13494/fs:13493/fs:13492/fs:13491/fs:13490/fs:13489/fs:13488/fs:13487/fs:13486/fs:13485/fs:13484/fs:13483/fs:13482/fs:13481/fs:472/fs:471/fs:470/fs:469/fs:468/fs:467/fs:466/fs:465/fs:464/fs:463/fs:462/fs:461/fs:460/fs:459/fs:458/fs,upperdir=/var/lib/docker/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/14302/fs,workdir=/var/lib/docker/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/14302/work,nouserxattr)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+sysfs on /sys type sysfs (ro,nosuid,nodev,noexec,relatime)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=131072000k,inode64)
+/dev/mapper/vastdata-data on /etc/resolv.conf type xfs (rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,prjquota)
+/dev/mapper/vastdata-data on /etc/hostname type xfs (rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,prjquota)
+/dev/mapper/vastdata-data on /etc/hosts type xfs (rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,prjquota)
+cgroup on /sys/fs/cgroup type cgroup2 (ro,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+tmpfs on /run/nvidia-persistenced/socket type tmpfs (rw,nosuid,nodev,noexec,relatime,size=52779300k,mode=755,inode64)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/bin/nvidia-cuda-mps-control type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/bin/nvidia-cuda-mps-server type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/bin/nvidia-debugdump type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/bin/nvidia-persistenced type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/bin/nvidia-smi type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /etc/vulkan/icd.d/nvidia_icd.json type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /etc/vulkan/implicit_layer.d/nvidia_layers.json type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libGLESv1_CM_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libGLESv2_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libcuda.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libcudadebugger.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvcuvid.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-egl-gbm.so.1.1.3 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1.1.21 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-eglcore.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-glvkspirv.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-gpucomp.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-ngx.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-present.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-rtcore.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-sandboxutils.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-tls.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvidia-vksc-core.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/libnvoptix.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/share/nvidia/nvoptix.bin type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/firmware/nvidia/580.126.20/gsp_ga10x.bin type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/firmware/nvidia/580.126.20/gsp_tu10x.bin type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/x86_64-linux-gnu/vdpau/libvdpau_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/share/X11/xorg.conf.d/nvidia-drm-outputclass.conf type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/share/egl/egl_external_platform.d/10_nvidia_wayland.json type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/share/egl/egl_external_platform.d/15_nvidia_gbm.json type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/share/glvnd/egl_vendor.d/10_nvidia.json type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/xorg/modules/drivers/nvidia_drv.so type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+/dev/mapper/ubuntu--vg--1-ubuntu--lv on /usr/lib/xorg/modules/extensions/libglxserver_nvidia.so.580.126.20 type ext4 (ro,nosuid,nodev,relatime,stripe=2)
+tmpfs on /run/nvidia-ctk-hook5caad39a-641b-4694-a9cf-5777fa7e31f5 type tmpfs (rw,relatime,size=4k,inode64)
+tmpfs on /proc/driver/nvidia/params type tmpfs (rw,relatime,size=4k,inode64)
+proc on /proc/bus type proc (ro,nosuid,nodev,noexec,relatime)
+proc on /proc/fs type proc (ro,nosuid,nodev,noexec,relatime)
+proc on /proc/irq type proc (ro,nosuid,nodev,noexec,relatime)
+proc on /proc/sys type proc (ro,nosuid,nodev,noexec,relatime)
+proc on /proc/sysrq-trigger type proc (ro,nosuid,nodev,noexec,relatime)
+tmpfs on /proc/acpi type tmpfs (ro,relatime,inode64)
+tmpfs on /proc/asound type tmpfs (ro,relatime,inode64)
+tmpfs on /proc/interrupts type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+tmpfs on /proc/kcore type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+tmpfs on /proc/keys type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+tmpfs on /proc/latency_stats type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+tmpfs on /proc/scsi type tmpfs (ro,relatime,inode64)
+tmpfs on /proc/timer_list type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+tmpfs on /sys/devices/virtual/powercap type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/firmware type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu0/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu1/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu2/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu3/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu4/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu5/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu6/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu7/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu8/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu9/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu10/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu11/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu12/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu13/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu14/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu15/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu16/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu17/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu18/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu19/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu20/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu21/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu22/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu23/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu24/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu25/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu26/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu27/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu28/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu29/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu30/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu31/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu32/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu33/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu34/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu35/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu36/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu37/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu38/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu39/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu40/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu41/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu42/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu43/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu44/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu45/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu46/thermal_throttle type tmpfs (ro,relatime,inode64)
+tmpfs on /sys/devices/system/cpu/cpu47/thermal_throttle type tmpfs (ro,relatime,inode64)
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
