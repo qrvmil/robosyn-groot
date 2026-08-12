@@ -1,0 +1,30 @@
+{
+  "evaluator": "RoboSynChallenge scripts/eval_policy.py",
+  "task": "click_bell",
+  "setting": "clear",
+  "policy": "groot",
+  "checkpoint": "runs/click_bell_sim_baseline_2k/checkpoints/click_bell_sim_baseline_2k/checkpoint-2000",
+  "episodes": 10,
+  "successes": 6,
+  "failures": 4,
+  "success_rate": 0.6,
+  "success_rate_percent": 60.0,
+  "episode_results": [
+    {"episode": 1, "seed": 209652396, "success": true},
+    {"episode": 2, "seed": 398764591, "success": false},
+    {"episode": 3, "seed": 924231285, "success": true},
+    {"episode": 4, "seed": 1478610112, "success": true},
+    {"episode": 5, "seed": 441365315, "success": false},
+    {"episode": 6, "seed": 1537364731, "success": true},
+    {"episode": 7, "seed": 192771779, "success": true},
+    {"episode": 8, "seed": 1491434855, "success": false},
+    {"episode": 9, "seed": 1819583497, "success": false},
+    {"episode": 10, "seed": 530702035, "success": true}
+  ],
+  "logs": {
+    "smoke": "runs/click_bell_sim_baseline_2k/evaluation/robosyn_closed_loop/smoke_eval.log",
+    "evaluation": "runs/click_bell_sim_baseline_2k/evaluation/robosyn_closed_loop/final_eval.log",
+    "server": "runs/click_bell_sim_baseline_2k/evaluation/robosyn_closed_loop/server.log"
+  },
+  "video_directory": "repos/RoboSynChallenge/eval_result/click_bell/groot/clear/None/checkpoint-2000/2026-08-12_23-00-57/videos"
+}

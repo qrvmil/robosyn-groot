@@ -42,4 +42,3 @@ runpy.run_path("gr00t/eval/run_gr00t_server.py", run_name="__main__")
   --host 127.0.0.1 \
   --port "$PORT" \
   2>&1 | tee "$OUTPUT_DIR/server.log"
-
