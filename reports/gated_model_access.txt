@@ -1,0 +1,3 @@
+Cosmos revision: 9ce19a195e423419c349abfc86fd07178b230561
+GR00T revision: 2fc962b973bccdd5d8ce4f67cc63b264d6886495
+gated model access OK

@@ -1,0 +1,113 @@
+Uninstalled 1 package in 9ms
+Installed 1 package in 287ms
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 2.0.8 (you have 1.4.18). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+Loaded modality config: examples/SO100/so100_config.py
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/experiment.py:122: UserWarning: image_crop_size and image_target_size will be deprecated in the future. Please use shortest_image_edge and crop_fraction instead.
+  warnings.warn(
+08/12/2026 13:35:17 - INFO - Saved config to /workspace/challenge/robosyn-groot/runs/so100_smoke/checkpoints/experiment_cfg
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:51<00:51, 51.52s/it]Fetching 2 files: 100%|██████████| 2/2 [00:51<00:00, 25.76s/it]
+Traceback (most recent call last):
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 403, in hf_raise_for_status
+    response.raise_for_status()
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://huggingface.co/nvidia/Cosmos-Reason2-2B/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1662, in _raise_on_head_call_error
+    raise head_call_error
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 420, in hf_raise_for_status
+    raise _format(GatedRepoError, message, response) from e
+huggingface_hub.errors.GatedRepoError: 403 Client Error. (Request ID: Root=1-6a7c76c9-1ae83b364b46daf372fd07ef;09035fd1-4e8b-406b-9286-db93ac8e36aa)
+
+Cannot access gated repo for url https://huggingface.co/nvidia/Cosmos-Reason2-2B/resolve/main/config.json.
+Access to model nvidia/Cosmos-Reason2-2B is restricted and you are not in the authorized list. Visit https://huggingface.co/nvidia/Cosmos-Reason2-2B to ask for access.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/qwen3_backbone.py", line 183, in __init__
+    self.model = Qwen3VLForConditionalGeneration.from_pretrained(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4843, in from_pretrained
+    config, model_kwargs = cls.config_class.from_pretrained(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py", line 622, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py", line 662, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py", line 721, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 322, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    raise OSError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/nvidia/Cosmos-Reason2-2B.
+403 Client Error. (Request ID: Root=1-6a7c76c9-1ae83b364b46daf372fd07ef;09035fd1-4e8b-406b-9286-db93ac8e36aa)
+
+Cannot access gated repo for url https://huggingface.co/nvidia/Cosmos-Reason2-2B/resolve/main/config.json.
+Access to model nvidia/Cosmos-Reason2-2B is restricted and you are not in the authorized list. Visit https://huggingface.co/nvidia/Cosmos-Reason2-2B to ask for access.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/launch_finetune.py", line 130, in <module>
+    run(config)
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/experiment.py", line 249, in run
+    pipeline.setup()
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py", line 74, in setup
+    self.model = self._create_model()
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py", line 82, in _create_model
+    model, loading_info = AutoModel.from_pretrained(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py", line 530, in __init__
+    self.backbone = backbone_cls(
+                    ^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/qwen3_backbone.py", line 190, in __init__
+    raise RuntimeError(_GATED_BACKBONE_HINT.format(model_name=model_name)) from exc
+RuntimeError: Cannot download the VLM backbone 'nvidia/Cosmos-Reason2-2B', which is a gated Hugging Face repo. Every GR00T checkpoint (including the base nvidia/GR00T-N1.7-3B) loads this backbone, so both zero-shot inference and finetuning require access to it. Request access at https://huggingface.co/nvidia/Cosmos-Reason2-2B and authenticate with `hf auth login` (or set the HF_TOKEN environment variable) before loading a GR00T model.
