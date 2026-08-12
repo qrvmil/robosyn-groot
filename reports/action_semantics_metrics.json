@@ -1,0 +1,23 @@
+{
+  "frames": 74000,
+  "episodes": 1000,
+  "action_minus_same_state": {
+    "mae": 0.0007517037822464987,
+    "p99_abs": 0.008589270114898684,
+    "max_abs": 0.18156135082244873
+  },
+  "action_minus_next_state": {
+    "mae": 0.004581522398702696,
+    "p99_abs": 0.04542577385902405,
+    "max_abs": 0.18156135082244873
+  },
+  "action_gripper_unique": {
+    "index_6": [
+      0.0
+    ],
+    "index_13": [
+      0.0
+    ]
+  },
+  "interpretation": "Stored actions are same-timestep absolute joint targets; GR00T converts arm groups to relative representation in its processor."
+}
