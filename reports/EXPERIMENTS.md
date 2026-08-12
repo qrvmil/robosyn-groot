@@ -4,7 +4,7 @@
 |---|---|---:|---|---|
 | `so100_smoke` | Official SO100 smoke data | 10 | Official smoke configuration | Passed training and checkpoint reload |
 | `tiny_click_bell_v1` | Episodes 0, 250, 500, 749 | 500 | Projector + diffusion | Passed; loss fell 23.3% comparing first/last ten windows; open-loop passed |
-| `click_bell_sim_baseline_2k` | Full prepared Click Bell dataset | 2,000 | Projector + diffusion | Prepared and preflight checked; intentionally unlaunched |
+| `click_bell_sim_baseline_2k` | Full prepared Click Bell dataset | 2,000 | Projector + diffusion | One-step full-profile startup smoke passed; main 2,000-step run unlaunched |
 
 ## Tiny open-loop result
 

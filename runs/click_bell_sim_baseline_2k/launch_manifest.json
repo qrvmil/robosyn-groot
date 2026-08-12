@@ -56,6 +56,31 @@
     "reports/launch_finetune_help.txt": "5f1174ffa19eb2474dadc2e306c67450781b2a3db7bcd3da5ace2f2e3c429012",
     "reports/loader_smoke.json": "b51be94d4d965ae36e120c7da3697fcdf49e5fc474835bcb53301e1fe5afc2b2",
     "reports/tiny_overfit.json": "68105a3b252f2ce91a405b0edc066ed8662c13650498872ea877652631b64e9e",
-    "runs/click_bell_sim_baseline_2k/command.sh": "f6c99e8012990047f63352f0b50393e5aed9df0e95d58c615ef7013458f29b6d"
+    "runs/click_bell_sim_baseline_2k/command.sh": "96355b504b784e968bd849265aaed12ff5b2d539b58927f4b3acfd63343b490b"
+  },
+  "failed_startups": [
+    {
+      "timestamp": "2026-08-12T18:25:27Z",
+      "stage": "Cosmos processor initialization",
+      "optimizer_steps": 0,
+      "cause": "HF_HUB_OFFLINE=1 blocked required Hugging Face model_info lookup",
+      "evidence": "runs/click_bell_sim_baseline_2k/failed_startup_offline_20260812T182527Z/stdout.log"
+    }
+  ],
+  "startup_smoke": {
+    "status": "pass",
+    "timestamp": "2026-08-12T18:50:13Z",
+    "base_model_revision": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+    "dataset": "data/prepared/cobotmagic_Sim_click_bell__groot_v1",
+    "dataset_episodes": 1000,
+    "global_batch_size": 32,
+    "dataloader_num_workers": 4,
+    "optimizer_steps": 1,
+    "train_loss": 1.1968401670455933,
+    "train_runtime_seconds": 43.1671,
+    "exit_code": 0,
+    "offline_metadata_error_reproduced_before_fix": true,
+    "cosmos_processor_metadata_lookup": "pass after removing forced offline environment",
+    "evidence": "runs/click_bell_sim_baseline_2k/startup_smoke.log"
   }
 }

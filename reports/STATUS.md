@@ -12,6 +12,7 @@
 - Official loader/stats and 128-sample action round-trip: pass; max error `5.55e-17`
 - Tiny training: 500/500 steps; last-window loss `1.0409`; no NaN/OOM
 - Tiny open loop: four episodes, `(74, 14)` each; aggregate MAE `0.01669`; best arm lag `0` for all
+- Full-profile startup smoke: full dataset, batch 32, four workers, one optimizer step, loss `1.19684`, exit code 0
 - Final machine preflight: all checks pass in `reports/READINESS.md`
 
 ## Known data constraint

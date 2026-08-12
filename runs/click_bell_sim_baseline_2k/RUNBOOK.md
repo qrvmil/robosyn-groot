@@ -2,6 +2,8 @@
 
 This launcher is prepared and syntax/preflight checked, but intentionally unlaunched.
 
+A one-step full-profile smoke passed with global batch 32. Startup requires access to Hugging Face metadata for `nvidia/Cosmos-Reason2-2B`; do not set `HF_HUB_OFFLINE=1` or `TRANSFORMERS_OFFLINE=1`. Model weights still load from the pinned local GR00T snapshot.
+
 ## Start
 
 ```bash

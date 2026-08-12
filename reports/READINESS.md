@@ -8,15 +8,17 @@ Run: `click_bell_sim_baseline_2k`
 |---|---:|---|
 | `launch_manifest` | PASS | /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/launch_manifest.json |
 | `tiny_overfit` | PASS | 500-step training, reload, and open-loop evidence |
+| `full_startup_smoke` | PASS | batch 32, full dataset, Cosmos metadata, and one optimizer step |
 | `config_checksum` | PASS | expected=a92e1d5a1cd47c1a93e60e22179976b46b7c1a313bdea1078fbe0bff724b29f8 |
 | `provenance_checksums` | PASS | matched |
 | `command_executable` | PASS | /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/command.sh |
 | `cli_flags` | PASS | all flags in pinned help |
+| `launcher_environment` | PASS | Hub metadata lookup is enabled |
 | `launch_scope` | PASS | missing=[]; unsafe=[] |
 | `full_run_unlaunched` | PASS | /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/checkpoints |
 | `hardware` | PASS | {"bf16": true, "cuda": true, "ffmpeg": true, "gpu": "NVIDIA A100 80GB PCIe", "torch": "2.9.0+cu128", "torch_cuda": "12.8"} |
 | `ffmpeg` | PASS | /usr/bin/ffmpeg |
-| `disk_reserve` | PASS | free_bytes=262806310912; required=161061273600 |
+| `disk_reserve` | PASS | free_bytes=262807097344; required=161061273600 |
 | `model_access` | PASS | revision=2fc962b973bccdd5d8ce4f67cc63b264d6886495; shards=2 |
 | `groot_revision` | PASS | 376ba890cff8c9de64d71d982772a9c36185fdd7 |
 | `official_smoke` | PASS | SO100 train+reload |

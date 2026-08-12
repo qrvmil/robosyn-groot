@@ -1,0 +1,82 @@
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 2.0.8 (you have 1.4.18). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+Loaded modality config: /workspace/challenge/robosyn-groot/configs/robosyn_cobotmagic_config.py
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/experiment.py:122: UserWarning: image_crop_size and image_target_size will be deprecated in the future. Please use shortest_image_edge and crop_fraction instead.
+  warnings.warn(
+08/12/2026 18:25:27 - INFO - Saved config to /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/checkpoints/click_bell_sim_baseline_2k/experiment_cfg
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLForConditionalGeneration is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLVisionModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3VLTextModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/dit.py:255: FutureWarning: Accessing config attribute `compute_dtype` directly via 'AlternateVLDiT' object attribute is deprecated. Please access 'compute_dtype' over 'AlternateVLDiT's config object instead, e.g. 'unet.config.compute_dtype'.
+  embedding_dim=self.inner_dim, compute_dtype=self.compute_dtype
+/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/modules/dit.py:286: FutureWarning: Accessing config attribute `output_dim` directly via 'AlternateVLDiT' object attribute is deprecated. Please access 'output_dim' over 'AlternateVLDiT's config object instead, e.g. 'unet.config.output_dim'.
+  self.proj_out_2 = nn.Linear(self.inner_dim, self.output_dim)
+Total number of DiT parameters:  1091722240
+08/12/2026 18:25:29 - INFO - Using AlternateVLDiT for diffusion model
+Total number of SelfAttentionTransformer parameters:  201433088
+Traceback (most recent call last):
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/launch_finetune.py", line 130, in <module>
+    run(config)
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/experiment/experiment.py", line 249, in run
+    pipeline.setup()
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py", line 74, in setup
+    self.model = self._create_model()
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py", line 82, in _create_model
+    model, loading_info = AutoModel.from_pretrained(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py", line 547, in __init__
+    self.collator = Gr00tN1d7DataCollator(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py", line 167, in __init__
+    self.processor = build_processor(model_name, transformers_loading_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py", line 129, in build_processor
+    return Qwen3VLProcessor.from_pretrained(model_name, **transformers_loading_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1394, in from_pretrained
+    args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/processing_utils.py", line 1453, in _get_arguments_from_pretrained
+    args.append(attribute_class.from_pretrained(pretrained_model_name_or_path, **kwargs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2113, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2395, in _from_pretrained
+    tokenizer = cls._patch_mistral_regex(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2438, in _patch_mistral_regex
+    if _is_local or is_base_mistral(pretrained_model_name_or_path):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2432, in is_base_mistral
+    model = model_info(model_id)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2660, in model_info
+    r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/requests/sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/challenge/robosyn-groot/repos/Isaac-GR00T/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 107, in send
+    raise OfflineModeIsEnabled(
+huggingface_hub.errors.OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/nvidia/Cosmos-Reason2-2B: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.

@@ -28,7 +28,7 @@ bash /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/command.
   2>&1 | tee /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/stdout.log
 ```
 
-Это единственная команда, необходимая для старта. Скрипт сам активирует окружение, выбирает GPU 0, включает offline-режим Hugging Face и запускает закреплённую версию Isaac-GR00T.
+Это единственная команда, необходимая для старта. Скрипт сам активирует окружение, выбирает GPU 0 и запускает закреплённую версию Isaac-GR00T. Доступ к Hugging Face metadata должен оставаться включённым: Cosmos processor выполняет metadata lookup даже при наличии файлов в локальном cache.
 
 ## Что было сделано
 
@@ -44,7 +44,7 @@ bash /workspace/challenge/robosyn-groot/runs/click_bell_sim_baseline_2k/command.
 10. Проверено преобразование action → normalization → denormalization на 128 примерах: максимальная ошибка `5.55e-17`.
 11. Выполнено 500-шаговое tiny-training на четырёх эпизодах без NaN/OOM.
 12. Tiny checkpoint загружен обратно и проверен open-loop inference на четырёх эпизодах.
-13. Создан, но не запущен, полный 2 000-шаговый launcher и машинный preflight.
+13. Создан полный 2 000-шаговый launcher и машинный preflight. После исправления offline-конфигурации тем же full-profile выполнен отдельный успешный one-step smoke: полный dataset, batch 32, четыре worker-а, loss `1.19684`. Основной 2 000-шаговый run не запускался.
 
 Подробные доказательства находятся в:
 
@@ -180,7 +180,7 @@ Action horizon равен 13 шагам при 25 FPS, то есть `0,52 се�
 | Episode sampling rate | `1.0` |
 | W&B | disabled |
 
-Batch 32 является параметром подготовленного full-run, но полноценный 2 000-шаговый прогон ещё не выполнялся. Если первый шаг завершится CUDA OOM, уменьшить `--global-batch-size` сначала до `16`, затем при необходимости до `8`. При изменении batch для сохранения effective batch можно увеличить gradient accumulation.
+Batch 32 успешно выполнил один реальный optimizer step на полном 1 000-эпизодном dataset (`train_loss=1.19684`) и помещается в A100 80 GB. Полноценный 2 000-шаговый прогон ещё не выполнялся. Если позднее всё же возникнет CUDA OOM из-за изменившегося окружения, уменьшить `--global-batch-size` сначала до `16`, затем при необходимости до `8`. При изменении batch для сохранения effective batch можно увеличить gradient accumulation.
 
 ## Как следить за обучением
 
@@ -373,7 +373,7 @@ Multi-task обучение рекомендуется начинать с ис�
 
 ## Hugging Face
 
-На текущей машине ничего дополнительно делать на Hugging Face не требуется: точная модель уже находится в локальном cache, а launcher использует `HF_HUB_OFFLINE=1` и `TRANSFORMERS_OFFLINE=1`.
+На текущей машине веса уже находятся в локальном cache. Однако launcher намеренно не включает `HF_HUB_OFFLINE=1` или `TRANSFORMERS_OFFLINE=1`: Transformers выполняет metadata lookup для `nvidia/Cosmos-Reason2-2B` во время создания processor. Поэтому при старте требуется доступ к `huggingface.co`, даже если основные веса уже скачаны.
 
 При переносе на другую машину нужно получить доступ к `nvidia/GR00T-N1.7-3B`, авторизовать `hf`, скачать именно revision `2fc962b973bccdd5d8ce4f67cc63b264d6886495` и либо сохранить тот же layout cache, либо изменить `--base-model-path` на новый локальный snapshot.
 
@@ -398,6 +398,7 @@ Multi-task обучение рекомендуется начинать с ис�
 
 - Подготовка: завершена.
 - Итоговый preflight single-task baseline: `READY`.
+- Full-profile startup smoke: 1/1 optimizer step, batch 32, exit code 0.
 - Полный 2 000-шаговый run: не запускался.
 - Активного `launch_finetune.py` процесса нет.
 - Следующее действие для single-task baseline — выполнить команду из раздела «Быстрый старт».

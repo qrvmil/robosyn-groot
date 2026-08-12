@@ -4,7 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 
-from tools.verify_readiness import validate_command_flags, verify_readiness
+from tools.verify_readiness import (
+    validate_command_flags,
+    validate_launcher_environment,
+    verify_readiness,
+)
 
 
 def _sha256(path: Path) -> str:
@@ -53,3 +57,16 @@ def test_validate_command_flags_rejects_unknown_flag():
         ["launch_finetune.py", "--dataset-path", "/data", "--mystery", "1"], help_text
     )
     assert errors == ["unknown flag: --mystery"]
+
+
+def test_launcher_environment_rejects_forced_hf_offline_mode():
+    command = "exec env CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 launch_finetune.py"
+    assert validate_launcher_environment(command) == [
+        "HF_HUB_OFFLINE=1 blocks required Cosmos processor metadata lookup"
+    ]
+
+
+def test_readiness_requires_full_profile_startup_smoke(tmp_path: Path):
+    root = _workspace(tmp_path)
+    result = verify_readiness(root, "baseline")
+    assert "full_startup_smoke" in result["failed_checks"]

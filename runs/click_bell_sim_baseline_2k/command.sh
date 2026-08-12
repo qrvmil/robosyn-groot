@@ -6,8 +6,6 @@ cd "$WORK_ROOT/repos/Isaac-GR00T"
 
 exec env \
   CUDA_VISIBLE_DEVICES=0 \
-  HF_HUB_OFFLINE=1 \
-  TRANSFORMERS_OFFLINE=1 \
   .venv/bin/python gr00t/experiment/launch_finetune.py \
   --base-model-path /workspace/challenge/robosyn-groot/cache/huggingface/hub/models--nvidia--GR00T-N1.7-3B/snapshots/2fc962b973bccdd5d8ce4f67cc63b264d6886495 \
   --dataset-path "$WORK_ROOT/data/prepared/cobotmagic_Sim_click_bell__groot_v1" \

@@ -52,6 +52,15 @@ def validate_command_flags(command: Sequence[str], help_text: str) -> list[str]:
     return errors
 
 
+def validate_launcher_environment(command: str) -> list[str]:
+    errors = []
+    if re.search(r"(?:^|\s)HF_HUB_OFFLINE=1(?:\s|$)", command):
+        errors.append("HF_HUB_OFFLINE=1 blocks required Cosmos processor metadata lookup")
+    if re.search(r"(?:^|\s)TRANSFORMERS_OFFLINE=1(?:\s|$)", command):
+        errors.append("TRANSFORMERS_OFFLINE=1 blocks required Cosmos processor metadata lookup")
+    return errors
+
+
 def _command_tokens(path: Path) -> list[str]:
     text = _text(path).replace("\\\n", " ")
     try:
@@ -124,6 +133,21 @@ def verify_readiness(work_root: Path, run_name: str) -> dict[str, object]:
     )
     record("tiny_overfit", tiny_pass, "500-step training, reload, and open-loop evidence")
 
+    full_smoke = _json(work_root / "reports" / "full_startup_smoke.json")
+    full_smoke_pass = (
+        full_smoke.get("status") == "pass"
+        and full_smoke.get("exit_code") == 0
+        and full_smoke.get("global_batch_size") == 32
+        and int(full_smoke.get("optimizer_steps", 0)) >= 1
+        and full_smoke.get("cosmos_processor_metadata_lookup")
+        == "pass after removing forced offline environment"
+    )
+    record(
+        "full_startup_smoke",
+        full_smoke_pass,
+        "batch 32, full dataset, Cosmos metadata, and one optimizer step",
+    )
+
     checksums = manifest.get("checksums", {}) if isinstance(manifest.get("checksums"), dict) else {}
     config_rel = "configs/robosyn_cobotmagic_config.py"
     config = work_root / config_rel
@@ -151,6 +175,12 @@ def verify_readiness(work_root: Path, run_name: str) -> dict[str, object]:
     )
     flag_errors = validate_command_flags(tokens, _text(work_root / "reports" / "launch_finetune_help.txt"))
     record("cli_flags", bool(tokens) and not flag_errors, "; ".join(flag_errors) or "all flags in pinned help")
+    environment_errors = validate_launcher_environment(_text(command_path))
+    record(
+        "launcher_environment",
+        not environment_errors,
+        "; ".join(environment_errors) or "Hub metadata lookup is enabled",
+    )
 
     required_pairs = {
         "--base-model-path": str(manifest.get("base_model_path", "")),
