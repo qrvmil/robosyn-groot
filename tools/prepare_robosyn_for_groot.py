@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import errno
 import hashlib
 import json
 import os
@@ -96,8 +97,34 @@ def split_episode_ids(
     return {"train": sorted(shuffled[count:]), "validation": sorted(shuffled[:count])}
 
 
-def prune_excluded_features(root: Path, excluded: dict[str, object]) -> dict[str, object]:
-    keys = sorted(str(key) for key in excluded)
+LEROBOT_REQUIRED_FEATURES = {
+    "timestamp",
+    "frame_index",
+    "episode_index",
+    "index",
+    "task_index",
+}
+
+
+def policy_feature_allowlist(semantics: dict[str, object]) -> set[str]:
+    language = semantics["language"]
+    return {
+        str(semantics["state"]["original_key"]),
+        str(semantics["action"]["original_key"]),
+        *(str(value["original_key"]) for value in semantics["video"].values()),
+        str(language["original_key"]),
+        str(language["modality_key"]),
+        *LEROBOT_REQUIRED_FEATURES,
+    }
+
+
+def prune_to_policy_features(
+    root: Path, semantics: dict[str, object]
+) -> dict[str, object]:
+    info_path = root / "meta/info.json"
+    info = load_json(info_path)
+    allowed = policy_feature_allowlist(semantics)
+    keys = sorted(set(map(str, info["features"])) - allowed)
     dropped_columns = 0
     parquet_files = 0
     for path in sorted(root.glob("data/**/*.parquet")):
@@ -111,15 +138,13 @@ def prune_excluded_features(root: Path, excluded: dict[str, object]) -> dict[str
             dropped_columns += len(present)
         parquet_files += 1
 
-    info_path = root / "meta/info.json"
-    info = load_json(info_path)
     removed_metadata = []
     for key in keys:
         if info["features"].pop(key, None) is not None:
             removed_metadata.append(key)
     info_path.write_text(json.dumps(info, indent=2) + "\n")
     return {
-        "requested": keys,
+        "allowlist": sorted(allowed),
         "removed_metadata": removed_metadata,
         "parquet_files": parquet_files,
         "dropped_column_instances": dropped_columns,
@@ -210,7 +235,22 @@ def render_groot_config(semantics: dict[str, object]) -> str:
 
 def _make_writable(root: Path) -> None:
     for path in [root, *root.rglob("*")]:
+        relative = path.relative_to(root)
+        if relative.parts[:1] == ("videos",) and path.is_file():
+            continue
         path.chmod(stat.S_IMODE(path.stat().st_mode) | stat.S_IWUSR)
+
+
+def _copy_dataset_file(source: str, destination: str) -> str:
+    source_path = Path(source)
+    if "videos" in source_path.parts:
+        try:
+            os.link(source, destination)
+            return destination
+        except OSError as exc:
+            if exc.errno not in {errno.EXDEV, errno.EPERM, errno.EACCES, errno.EMLINK}:
+                raise
+    return shutil.copy2(source, destination)
 
 
 def _episode_ids(root: Path) -> list[int]:
@@ -235,11 +275,11 @@ def prepare_dataset(src: Path, dst: Path, semantics: dict[str, object]) -> dict[
     dst.parent.mkdir(parents=True, exist_ok=True)
     temporary = Path(tempfile.mkdtemp(prefix=f".{dst.name}.tmp-", dir=dst.parent))
     try:
-        shutil.copytree(src, temporary, dirs_exist_ok=True)
-        _make_writable(temporary)
-        pruning = prune_excluded_features(
-            temporary, semantics.get("excluded_from_baseline", {})
+        shutil.copytree(
+            src, temporary, dirs_exist_ok=True, copy_function=_copy_dataset_file
         )
+        _make_writable(temporary)
+        pruning = prune_to_policy_features(temporary, semantics)
         language = align_language_annotation(temporary, semantics["language"])
         split = split_episode_ids(_episode_ids(temporary))
         (temporary / "meta/modality.json").write_text(
@@ -257,7 +297,8 @@ def prepare_dataset(src: Path, dst: Path, semantics: dict[str, object]) -> dict[
             "semantics_sha256": hashlib.sha256(semantic_bytes).hexdigest(),
             "transformations": [
                 "copied immutable source snapshot",
-                f"removed excluded baseline features: {pruning['removed_metadata']}",
+                "hardlinked immutable videos when supported by the filesystem",
+                f"retained only policy/data-loader allowlist features; removed: {pruning['removed_metadata']}",
                 f"aligned {language['source_key']} to {language['aligned_key']}",
                 "added modality metadata",
                 "added deterministic whole-episode split",

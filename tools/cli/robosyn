@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+REPO_ROOT="$(cd "$(dirname "$SCRIPT_PATH")/../.." && pwd -P)"
+WORK_ROOT="${ROBOSYN_WORK_ROOT:-$REPO_ROOT}"
+GROOT_SRC="${ROBOSYN_GROOT_SRC:-/opt/robosyn/Isaac-GR00T}"
+GROOT_LINK="$WORK_ROOT/repos/Isaac-GR00T"
+
+mkdir -p "$WORK_ROOT/repos"
+if [[ -L "$GROOT_LINK" ]]; then
+  CURRENT_TARGET="$(readlink -f "$GROOT_LINK" || true)"
+  if [[ "$CURRENT_TARGET" != "$(readlink -f "$GROOT_SRC")" ]]; then
+    unlink "$GROOT_LINK"
+  fi
+elif [[ -e "$GROOT_LINK" ]]; then
+  if [[ "$(readlink -f "$GROOT_LINK")" != "$(readlink -f "$GROOT_SRC")" ]]; then
+    echo "Refusing to replace non-symlink path: $GROOT_LINK" >&2
+    exit 3
+  fi
+fi
+[[ -e "$GROOT_LINK" ]] || ln -s "$GROOT_SRC" "$GROOT_LINK"
+
+PYTHON_BIN="${ROBOSYN_PYTHON_BIN:-$GROOT_LINK/.venv/bin/python}"
+[[ -x "$PYTHON_BIN" ]] || { echo "GR00T Python is missing: $PYTHON_BIN" >&2; exit 3; }
+
+ENTRY_NAME="$(basename "$0")"
+if [[ "$ENTRY_NAME" == "robosyn" ]]; then
+  [[ $# -gt 0 ]] || { echo "usage: robosyn <command> [args]" >&2; exit 2; }
+  COMMAND="$1"
+  shift
+else
+  COMMAND="${ENTRY_NAME#robosyn-}"
+fi
+
+export ROBOSYN_REPO_ROOT="$REPO_ROOT" ROBOSYN_WORK_ROOT="$WORK_ROOT" ROBOSYN_GROOT_SRC="$GROOT_SRC"
+export HF_HOME="${HF_HOME:-$WORK_ROOT/cache/huggingface}"
+export HUGGINGFACE_HUB_CACHE="${HUGGINGFACE_HUB_CACHE:-$WORK_ROOT/cache/huggingface/hub}"
+export HF_HUB_DISABLE_XET="${HF_HUB_DISABLE_XET:-1}"
+export HF_HUB_ETAG_TIMEOUT="${HF_HUB_ETAG_TIMEOUT:-30}"
+export HF_HUB_DOWNLOAD_TIMEOUT="${HF_HUB_DOWNLOAD_TIMEOUT:-60}"
+unset HF_HUB_OFFLINE
+exec "$PYTHON_BIN" "$REPO_ROOT/tools/robosyn_cli.py" "$COMMAND" "$@"

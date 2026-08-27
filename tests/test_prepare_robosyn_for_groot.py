@@ -6,6 +6,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import pytest
 
+from gr00t.data.stats import generate_stats
 from tools.prepare_robosyn_for_groot import prepare_dataset
 
 
@@ -14,6 +15,10 @@ def dataset_fixture(tmp_path: Path) -> Path:
     root = tmp_path / "dataset"
     (root / "meta").mkdir(parents=True)
     (root / "data/chunk-000").mkdir(parents=True)
+    for camera in ("cam_high.color", "cam_left_wrist.color", "cam_right_wrist.color"):
+        video_dir = root / "videos/chunk-000" / camera
+        video_dir.mkdir(parents=True)
+        (video_dir / "episode_000000.mp4").write_bytes(b"immutable-video-fixture")
     info = {
         "codebase_version": "v2.1",
         "robot_type": "fixture",
@@ -25,6 +30,7 @@ def dataset_fixture(tmp_path: Path) -> Path:
             "observation.qpos": {"dtype": "float32", "shape": [4]},
             "action": {"dtype": "float32", "shape": [4]},
             "observation.qvel": {"dtype": "float32", "shape": [4]},
+            "object_pose": {"dtype": "float32", "shape": [4, 4]},
             "task_index": {"dtype": "int64", "shape": [1], "names": None},
         },
     }
@@ -50,6 +56,10 @@ def dataset_fixture(tmp_path: Path) -> Path:
                 "observation.qvel": pa.array(
                     [[1.0, 1.0, 1.0, 1.0]] * 2,
                     type=pa.list_(pa.float32(), 4),
+                ),
+                "object_pose": pa.array(
+                    [np.eye(4, dtype=np.float32).tolist()] * 2,
+                    type=pa.list_(pa.list_(pa.float32(), 4), 4),
                 ),
                 "task_index": pa.array([0, 0], type=pa.int64()),
                 "episode_index": pa.array([episode, episode], type=pa.int64()),
@@ -139,3 +149,53 @@ def test_prepare_aligns_language_split_and_preserves_raw(dataset_fixture: Path, 
     }
     assert "observation.qvel" not in info["features"]
     assert (destination / "meta/preparation_manifest.json").is_file()
+
+
+def test_prepare_allowlist_removes_unconfigured_matrix_features(
+    dataset_fixture: Path, semantics, tmp_path: Path
+):
+    """Catch Drawer-style object-pose matrices reaching GR00T stats."""
+    destination = tmp_path / "prepared"
+
+    prepare_dataset(dataset_fixture, destination, semantics)
+
+    prepared = pq.read_table(destination / "data/chunk-000/episode_000000.parquet")
+    prepared_info = json.loads((destination / "meta/info.json").read_text())
+    raw = pq.read_table(dataset_fixture / "data/chunk-000/episode_000000.parquet")
+    raw_info = json.loads((dataset_fixture / "meta/info.json").read_text())
+
+    assert "object_pose" not in prepared.column_names
+    assert "object_pose" not in prepared_info["features"]
+    assert "object_pose" in raw.column_names
+    assert "object_pose" in raw_info["features"]
+
+
+def test_prepare_hardlinks_videos_but_copies_writable_parquet(
+    dataset_fixture: Path, semantics, tmp_path: Path
+):
+    destination = tmp_path / "prepared"
+
+    prepare_dataset(dataset_fixture, destination, semantics)
+
+    relative_video = Path("videos/chunk-000/cam_high.color/episode_000000.mp4")
+    relative_parquet = Path("data/chunk-000/episode_000000.parquet")
+    assert (dataset_fixture / relative_video).stat().st_ino == (
+        destination / relative_video
+    ).stat().st_ino
+    assert (dataset_fixture / relative_parquet).stat().st_ino != (
+        destination / relative_parquet
+    ).stat().st_ino
+
+
+def test_official_stats_succeeds_after_matrix_feature_is_pruned(
+    dataset_fixture: Path, semantics, tmp_path: Path
+):
+    destination = tmp_path / "prepared"
+    prepare_dataset(dataset_fixture, destination, semantics)
+
+    generate_stats(destination)
+
+    stats = json.loads((destination / "meta/stats.json").read_text())
+    assert "observation.qpos" in stats
+    assert "action" in stats
+    assert "object_pose" not in stats

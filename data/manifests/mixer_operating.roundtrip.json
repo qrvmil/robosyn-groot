@@ -1,0 +1,152 @@
+{
+  "dataset": "/workspace/challenge/robosyn-groot/data/prepared/cobotmagic_Sim_mixer_operating__groot_v1",
+  "config": "/workspace/challenge/robosyn-groot/configs/tasks/mixer_operating_config.py",
+  "seed": 17,
+  "samples": 16,
+  "episode_positions_loaded": [
+    106,
+    160,
+    368,
+    456,
+    556,
+    735,
+    760,
+    840
+  ],
+  "action_horizon": 13,
+  "processor": {
+    "use_percentiles": true,
+    "use_relative_action": true,
+    "production_clip_outliers": true
+  },
+  "groups": {
+    "left_arm": {
+      "raw_shape": [
+        13,
+        6
+      ],
+      "exact_roundtrip_max_abs_error": 2.7755575615628914e-17,
+      "production_clipped_roundtrip_max_abs_error": 2.7755575615628914e-17,
+      "q01_q99_clip_count": 0,
+      "value_count": 1248,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "left_gripper": {
+      "raw_shape": [
+        13,
+        1
+      ],
+      "exact_roundtrip_max_abs_error": 7.450580596923828e-09,
+      "production_clipped_roundtrip_max_abs_error": 7.450580596923828e-09,
+      "q01_q99_clip_count": 0,
+      "value_count": 208,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "right_arm": {
+      "raw_shape": [
+        13,
+        6
+      ],
+      "exact_roundtrip_max_abs_error": 5.551115123125783e-17,
+      "production_clipped_roundtrip_max_abs_error": 5.551115123125783e-17,
+      "q01_q99_clip_count": 0,
+      "value_count": 1248,
+      "q01_q99_clip_fraction": 0.0
+    },
+    "right_gripper": {
+      "raw_shape": [
+        13,
+        1
+      ],
+      "exact_roundtrip_max_abs_error": 1.4901161193847656e-08,
+      "production_clipped_roundtrip_max_abs_error": 1.4901161193847656e-08,
+      "q01_q99_clip_count": 0,
+      "value_count": 208,
+      "q01_q99_clip_fraction": 0.0
+    }
+  },
+  "overall_exact_roundtrip_max_abs_error": 1.4901161193847656e-08,
+  "overall_production_clipped_roundtrip_max_abs_error": 1.4901161193847656e-08,
+  "sampled_pairs": [
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 203
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 37
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 249
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 181
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 261
+    },
+    {
+      "episode_position": 840,
+      "episode_id": 840,
+      "step": 295
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 120
+    },
+    {
+      "episode_position": 106,
+      "episode_id": 106,
+      "step": 220
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 7
+    },
+    {
+      "episode_position": 456,
+      "episode_id": 456,
+      "step": 95
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 201
+    },
+    {
+      "episode_position": 735,
+      "episode_id": 735,
+      "step": 139
+    },
+    {
+      "episode_position": 760,
+      "episode_id": 760,
+      "step": 199
+    },
+    {
+      "episode_position": 368,
+      "episode_id": 368,
+      "step": 279
+    },
+    {
+      "episode_position": 160,
+      "episode_id": 160,
+      "step": 75
+    },
+    {
+      "episode_position": 556,
+      "episode_id": 556,
+      "step": 261
+    }
+  ]
+}

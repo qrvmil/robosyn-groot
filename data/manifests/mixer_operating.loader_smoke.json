@@ -1,0 +1,70 @@
+{
+  "status": "pass",
+  "dataset": "/workspace/challenge/robosyn-groot/data/prepared/cobotmagic_Sim_mixer_operating__groot_v1",
+  "episodes": 1000,
+  "data_loader_batch_size": 2,
+  "action_horizon": 13,
+  "state_shapes": {
+    "left_arm": [
+      1,
+      6
+    ],
+    "left_gripper": [
+      1,
+      1
+    ],
+    "right_arm": [
+      1,
+      6
+    ],
+    "right_gripper": [
+      1,
+      1
+    ]
+  },
+  "action_shapes": {
+    "left_arm": [
+      13,
+      6
+    ],
+    "left_gripper": [
+      13,
+      1
+    ],
+    "right_arm": [
+      13,
+      6
+    ],
+    "right_gripper": [
+      13,
+      1
+    ]
+  },
+  "camera_shapes": {
+    "front": [
+      1,
+      480,
+      640,
+      3
+    ],
+    "left_wrist": [
+      1,
+      480,
+      640,
+      3
+    ],
+    "right_wrist": [
+      1,
+      480,
+      640,
+      3
+    ]
+  },
+  "camera_keys": [
+    "front",
+    "left_wrist",
+    "right_wrist"
+  ],
+  "language": "Pick the beaker, place it on the mixer, then flip the toggle switch with the other arm.",
+  "all_finite": true
+}

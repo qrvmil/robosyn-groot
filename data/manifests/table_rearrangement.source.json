@@ -1,0 +1,6 @@
+{
+  "task": "table_rearrangement",
+  "repo": "RoboSynChallenge/cobotmagic_Sim_table_rearrangement",
+  "revision": "ca14fdfbb9d39914f09b343e072618462bea97b8",
+  "raw_dataset_path": "/workspace/challenge/robosyn-groot/data/raw/RoboSynChallenge/cobotmagic_Sim_table_rearrangement"
+}

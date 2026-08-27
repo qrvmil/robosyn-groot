@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "repo_id": "RoboSynChallenge/cobotmagic_Sim_handle_basket",
+    "revision": "e5c0c3f25cff9d048c5fa6615b50351c45115684",
+    "raw_root": "/workspace/challenge/robosyn-groot/data/raw/RoboSynChallenge/cobotmagic_Sim_handle_basket",
+    "source_repo_revision": "93f95f898b76548cc259d20e2b90860a6f79120d"
+  },
+  "timing": {
+    "fps": 25,
+    "video_and_parquet_aligned": true,
+    "action_horizon_steps": 13,
+    "action_horizon_seconds": 0.52,
+    "video_delta_indices": [
+      0
+    ],
+    "state_delta_indices": [
+      0
+    ],
+    "action_delta_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "state": {
+    "original_key": "observation.state",
+    "stored_representation": "absolute joint position",
+    "groups": [
+      {
+        "key": "left_arm",
+        "start": 0,
+        "end": 6,
+        "units": "robot joint position (radians for revolute joints)"
+      },
+      {
+        "key": "left_gripper",
+        "start": 6,
+        "end": 7,
+        "units": "normalized position; 0=closed, 1=open"
+      },
+      {
+        "key": "right_arm",
+        "start": 7,
+        "end": 13,
+        "units": "robot joint position (radians for revolute joints)"
+      },
+      {
+        "key": "right_gripper",
+        "start": 13,
+        "end": 14,
+        "units": "normalized position; 0=closed, 1=open"
+      }
+    ]
+  },
+  "action": {
+    "original_key": "action",
+    "stored_representation": "absolute target joint position",
+    "groups": [
+      {
+        "key": "left_arm",
+        "start": 0,
+        "end": 6,
+        "training_representation": "RELATIVE",
+        "type": "NON_EEF",
+        "format": "DEFAULT",
+        "state_key": "left_arm"
+      },
+      {
+        "key": "left_gripper",
+        "start": 6,
+        "end": 7,
+        "training_representation": "ABSOLUTE",
+        "type": "NON_EEF",
+        "format": "DEFAULT"
+      },
+      {
+        "key": "right_arm",
+        "start": 7,
+        "end": 13,
+        "training_representation": "RELATIVE",
+        "type": "NON_EEF",
+        "format": "DEFAULT",
+        "state_key": "right_arm"
+      },
+      {
+        "key": "right_gripper",
+        "start": 13,
+        "end": 14,
+        "training_representation": "ABSOLUTE",
+        "type": "NON_EEF",
+        "format": "DEFAULT"
+      }
+    ]
+  },
+  "video": {
+    "front": {
+      "original_key": "observation.images.cam_high",
+      "physical_view": "base/overhead"
+    },
+    "left_wrist": {
+      "original_key": "observation.images.cam_left_wrist",
+      "physical_view": "left wrist"
+    },
+    "right_wrist": {
+      "original_key": "observation.images.cam_right_wrist",
+      "physical_view": "right wrist"
+    }
+  },
+  "language": {
+    "modality_key": "annotation.human.task_description",
+    "annotation_key": "human.task_description",
+    "original_key": "task_index",
+    "task_index": 0,
+    "task": "Pick the bottle then place it to the basket, carry the basket with the other arm."
+  },
+  "excluded_from_baseline": {
+    "observation.qvel": "not required for absolute joint target control baseline",
+    "observation.qf": "all 14 dimensions are zero across all 74000 frames",
+    "left_ee_pose": "EEF pose is not the demonstrated control representation",
+    "right_ee_pose": "EEF pose is not the demonstrated control representation"
+  },
+  "evidence": {
+    "generated_from_raw_metadata": "/workspace/challenge/robosyn-groot/data/raw/RoboSynChallenge/cobotmagic_Sim_handle_basket/meta/info.json",
+    "generated_from_task_metadata": "/workspace/challenge/robosyn-groot/data/raw/RoboSynChallenge/cobotmagic_Sim_handle_basket/meta/tasks.jsonl",
+    "state_action_names_match": true,
+    "joint_names": [
+      "LEFT_JOINT1",
+      "LEFT_JOINT2",
+      "LEFT_JOINT3",
+      "LEFT_JOINT4",
+      "LEFT_JOINT5",
+      "LEFT_JOINT6",
+      "LEFT_JOINT7",
+      "RIGHT_JOINT1",
+      "RIGHT_JOINT2",
+      "RIGHT_JOINT3",
+      "RIGHT_JOINT4",
+      "RIGHT_JOINT5",
+      "RIGHT_JOINT6",
+      "RIGHT_JOINT7"
+    ],
+    "task": "handle_basket"
+  }
+}

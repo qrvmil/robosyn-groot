@@ -1,0 +1,32 @@
+# RoboSyn closed-loop simulator environment (Python 3.11).
+# Torch wheels are installed from https://download.pytorch.org/whl/cu128.
+av==15.0.0
+black==26.3.1
+casadi==3.8.0
+fvcore==0.1.5.post20221221
+gymnasium==1.3.0
+h5py==3.16.0
+langchain==1.3.17
+langchain-openai==1.6.0
+msgpack==1.1.0
+msgpack-numpy==0.4.8
+numpy==1.26.4
+opencv-python==4.11.0.86
+ortools==9.14.6206
+pin==2.7.0
+pin-pink==3.4.0
+polars==1.31.0
+prettytable==3.18.0
+protobuf==6.31.1
+pytorch-kinematics==0.10.0
+pyyaml==6.0.3
+pyzmq==27.2.0
+qpsolvers[osqp]==4.8.1
+scipy==1.17.1
+tensorboard==2.21.0
+tensordict==0.14.0
+toppra==0.6.3
+torch==2.9.0+cu128
+torchvision==0.24.0+cu128
+viser==1.0.21
+wandb==0.28.2
